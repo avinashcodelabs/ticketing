@@ -9,3 +9,6 @@ OR
 Get it from https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
 
 ticketing > kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.3/deploy/static/provider/cloud/deploy.yaml
+
+Start the app using below command (it automatically creates all the k8s objects- Deployments, Services, Pods etc and destroys them when it stopped)
+`ticketing > skaffold dev`
