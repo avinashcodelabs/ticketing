@@ -2,16 +2,16 @@ apiVersion: skaffold/v4beta3
 kind: Config
 manifests:
   rawYaml:
-    - ./infra/k8s/*
+    - ./infra/k8s/* # run all the k8s config(object creation) files
 build:
   local:
-    push: false
+    push: false # don't push the docker images to docker-hub
   artifacts:
-    - image: avinashcodelabs/auth
-      context: auth # app director name
+    - image: avinashcodelabs/auth # docker image name
+      context: auth # service directory name, if something outside 'sync' files changes, rebuild the image from this app.
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: "src/**/*.ts" # watch-out for all the .ts file changes 
-            dest: .
+            dest: . # whenever there are changes to files in above path, copy them to running containers to current path - /app

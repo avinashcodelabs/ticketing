@@ -1,1 +1,11 @@
 # BookMy
+
+Run this command once to create nginx based k8s loadbalancer along with ingress based routing controller.
+No need to create or destroy every-time with skaffold dev/stop.
+ticketing > kubectl apply -f ./infra/setup-loadbalancer-ingress-controller.yaml
+
+OR
+
+Get it from https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
+
+ticketing > kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.3/deploy/static/provider/cloud/deploy.yaml

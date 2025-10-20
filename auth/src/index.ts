@@ -5,7 +5,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 app.get("/api/users/signup", (req, res) => {
-    res.send('Hi')
+    res.send('Hello!!!!');
 })
 
 app.listen(3000, () => {
