@@ -14,3 +14,12 @@ Start the app using below command (it automatically creates all the k8s objects-
 `ticketing > skaffold dev`
 
 App available at `https://ticketing.dev/api/users/signup`
+
+---
+
+Docker Desktop K8S (single-node) -> kind (multi-node)
+node -> bun
+express -> fastify
+express-validator -> zod
+skaffold -> tilt.dev or devspace.sh
+Nextjs Pages Router -> App Router
