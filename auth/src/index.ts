@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import { signupRouter } from "./routes/signup";
 import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
@@ -24,6 +25,17 @@ app.all("/*splat", () => {      // "*" express4 and "/*splat" in express5
 
 app.use(errorHandler)
 
-app.listen(3000, () => {
-    console.log('auth service running on 3000')
-})
+// Connect to Mongo DB before starting the app server
+const start = async () => {
+    try {
+        await mongoose.connect("mongodb://auth-mongo-srv:27017/auth") // 'auth' in the end is just a DB name, I want to create.    
+        console.log("Connected to MongoDB")
+    } catch (error) {
+        console.error(error);
+    }
+    app.listen(3000, () => {
+        console.log('auth service running on 3000')
+    })
+}
+
+start()
