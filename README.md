@@ -33,3 +33,12 @@ express-validator -> zod
 skaffold -> tilt.dev or devspace.sh
 Nextjs Pages Router -> App Router
 Find proper way to automate creating secret in k8s. Helm config can recognize(resolve) .env file keys and skaffold will take care of running yaml file as usual? for now, problem is k8s config files wont recognize from .env keys. or else bash script to generate yaml files on the file by reading .env keys and run that yaml through skaffold.
+
+---
+
+in order to decrypt the jwt token,
+
+1. take JWT from cookie.
+2. use https://www.base64decode.org/ to convert from base64 to utf-8
+3. copy 'jwt' key value
+4. paste that into https://www.jwt.io/ to decode it and see the payload
