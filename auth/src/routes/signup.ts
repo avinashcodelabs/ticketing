@@ -1,6 +1,7 @@
 import { Router } from "express";
 import type { Response, Request } from "express";
 import { body, validationResult } from "express-validator";
+import jwt from "jsonwebtoken";
 import { RequestValidationError } from "../errors/request-validation-error";
 import { User } from "../models/user";
 import { BadRequestError } from "../errors/bad-request-error";
@@ -28,6 +29,18 @@ router.post(
         }
         const user = new User({ email, password });
         await user.save()
+
+        const userJwt = jwt.sign({
+            id: user.id,
+            email: user.email
+        }, process.env.JWT_KEY!)
+
+        // this session prop is from cookie-session, this takes cares of 
+        // serializing the data and sending along with response and telling browser to store it.
+        req.session = {
+            jwt: userJwt
+        }
+
         res.status(201).send(user);
     }
 )

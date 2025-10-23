@@ -13,6 +13,15 @@ ticketing > `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingre
 Start the app using below command (it automatically creates all the k8s objects- Deployments, Services, Pods etc and destroys them when it stopped)
 `ticketing > skaffold dev`
 
+Run this command to create all secrets.
+ticketing > kubectl create secret generic jwt-secret --from-env-file=./infra/k8s/.env
+
+To update secret (whenver we make change(add/modify/remove) in .env file)
+ticketing > kubectl create secret generic jwt-secret --from-env-file=./infra/k8s/.env --dry-run=client -o yaml | kubectl apply -f -
+
+content of .env
+JWT_KEY=
+
 App available at `https://ticketing.dev/api/users/signup`
 
 ---
@@ -23,3 +32,4 @@ express -> fastify
 express-validator -> zod
 skaffold -> tilt.dev or devspace.sh
 Nextjs Pages Router -> App Router
+Find proper way to automate creating secret in k8s. Helm config can recognize(resolve) .env file keys and skaffold will take care of running yaml file as usual? for now, problem is k8s config files wont recognize from .env keys. or else bash script to generate yaml files on the file by reading .env keys and run that yaml through skaffold.
