@@ -13,13 +13,13 @@ const start = async () => {
     console.log("MONGO_URI", process.env.MONGO_URI)
 
     try {
-        await mongoose.connect(process.env.MONGO_URI) // 'auth' in the end is just a DB name, I want to create.    
+        await mongoose.connect(process.env.MONGO_URI) // 'tickets' in the end is just a DB name, I want to create.    
         console.log("Connected to MongoDB")
     } catch (error) {
         console.error(error);
     }
     app.listen(3000, () => {
-        console.log('auth service running on 3000')
+        console.log('tickets service running on 3000')
     })
 }
 
