@@ -1,9 +1,10 @@
 import express from "express";
-import { errorHandler, NotFoundError } from "@avinashcodelabs/common";
+import { currentUser, errorHandler, NotFoundError } from "@avinashcodelabs/common";
 // stores the user session data in cookie at client. I am storing this at client so, not one only
 // microservice(server) stores the data. so same client session data available to all microservices.
 // Data consistency
 import cookieSession from "cookie-session";
+import { createTicketRouter } from "./routes/new";
 
 const app = express()
 
@@ -23,6 +24,8 @@ app.use(cookieSession({
 
 }))
 
+app.use(currentUser)
+app.use(createTicketRouter)
 
 // Order of middleware matters here.
 // NotFoundError should come after all the valid routes and just before errorHandler,

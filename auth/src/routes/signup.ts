@@ -32,7 +32,7 @@ router.post(
             email: user.email
         }, process.env.JWT_KEY!)
 
-        // this session prop is from cookie-session, this takes cares of 
+        // this req.session prop is from cookie-session, this takes cares of 
         // serializing the data and sending along with response and telling browser to store it.
         req.session = {
             jwt: userJwt
