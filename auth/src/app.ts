@@ -3,8 +3,7 @@ import { signupRouter } from "./routes/signup";
 import { signinRouter } from "./routes/signin";
 import { signoutRouter } from "./routes/signout";
 import { currentUserRouter } from "./routes/current-user";
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors/not-found-error";
+import { errorHandler, NotFoundError } from "@avinashcodelabs/common";
 // stores the user session data in cookie at client. I am storing this at client so, not one only
 // microservice(server) stores the data. so same client session data available to all microservices.
 // Data consistency

@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { currentUser } from "../middlewares/current-user";
-import { requireAuth } from "../middlewares/require-auth";
+import { currentUser, requireAuth } from "@avinashcodelabs/common";
 
 const router = Router();
 
