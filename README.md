@@ -22,7 +22,8 @@ ticketing > kubectl create secret generic jwt-secret --from-env-file=./infra/k8s
 content of .env
 JWT_KEY=
 
-App available at `https://ticketing.dev/api/users/signup`
+App UI available at `https://ticketing.dev`
+App API available at `https://ticketing.dev/api/users/signup`
 
 ---
 
