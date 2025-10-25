@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: auth-mongo
   template:
-    metadata:   
+    metadata:
       labels:
         app: auth-mongo
     spec:

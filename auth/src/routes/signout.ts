@@ -4,10 +4,8 @@ import { currentUser, requireAuth } from "@avinashcodelabs/common";
 const router = Router();
 
 router.post("/api/users/signout", currentUser, requireAuth, (req, res) => {
-    req.session = null;
-    res.send({});
-})
+  req.session = null;
+  res.send({});
+});
 
-export {
-    router as signoutRouter
-}
+export { router as signoutRouter };

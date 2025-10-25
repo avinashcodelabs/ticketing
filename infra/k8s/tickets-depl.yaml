@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: tickets
   template:
-    metadata:   
+    metadata:
       labels:
         app: tickets
     spec:
