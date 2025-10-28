@@ -8,6 +8,8 @@ import {
   NotAuthorizedError,
 } from "@avinashcodelabs/common";
 import { Ticket } from "../models/ticket";
+import { TicketUpdatedPublisher } from "../events/publisher/ticket-updated-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = Router();
 
@@ -38,6 +40,15 @@ router.put(
     });
 
     await ticket.save();
+
+    // Publish, edit ticket event, once it saved into DB.
+    await new TicketUpdatedPublisher(natsWrapper.client).publish({
+      id: ticket.id,
+      title: ticket.title,
+      price: ticket.price,
+      userId: ticket.userId,
+    });
+
     res.status(200).send(ticket);
   }
 );
