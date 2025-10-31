@@ -9,6 +9,8 @@ import {
   OrderStatus,
 } from "@avinashcodelabs/common";
 import { Order } from "../models/order";
+import { natsWrapper } from "../nats-wrapper";
+import { OrderCancelPublisher } from "../events/publishers/order-cancel-publisher";
 
 const router = Router();
 
@@ -17,7 +19,7 @@ router.delete(
   requireAuth,
   async (req: Request, res: Response) => {
     const { orderId } = req.params;
-    const order = await Order.findById(orderId);
+    const order = await Order.findById(orderId).populate("ticket");
     if (!order) {
       throw new NotFoundError();
     }
@@ -28,6 +30,15 @@ router.delete(
     order.status = OrderStatus.Cancelled;
 
     await order.save();
+
+    // Publish order cancelled event to payment service
+    await new OrderCancelPublisher(natsWrapper.client).publish({
+      id: order.id,
+      ticket: {
+        id: order.ticket?.id,
+      },
+    });
+
     res.status(200).send(order);
   }
 );
