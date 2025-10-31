@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only --poll src/index.ts",
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache --detectOpenHandles"
   },
   "jest": {
     "preset": "ts-jest",
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@avinashcodelabs/common": "^1.0.8",
+    "@avinashcodelabs/common": "^1.0.9",
     "@types/cookie-session": "^2.0.49",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.8.1",

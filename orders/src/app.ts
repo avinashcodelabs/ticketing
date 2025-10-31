@@ -8,6 +8,10 @@ import {
 // microservice(server) stores the data. so same client session data available to all microservices.
 // Data consistency
 import cookieSession from "cookie-session";
+import { indexOrderRouter } from "./routes";
+import { deleteOrderRouter } from "./routes/delete";
+import { createOrderRouter } from "./routes/new";
+import { showOrderRouter } from "./routes/show";
 
 const app = express();
 
@@ -29,6 +33,10 @@ app.use(
 );
 
 app.use(currentUser);
+app.use(indexOrderRouter);
+app.use(deleteOrderRouter);
+app.use(createOrderRouter);
+app.use(showOrderRouter);
 
 // Order of middleware matters here.
 // NotFoundError should come after all the valid routes and just before errorHandler,
