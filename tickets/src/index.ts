@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import { randomBytes } from "crypto";
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
+import { OrderCreateListener } from "./events/listeners/order-create-listener";
+import { OrderCancelListener } from "./events/listeners/order-cancelled-listener";
 
 // Connect to Mongo DB before starting the app server
 const start = async () => {
@@ -40,6 +42,10 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close());
     process.on("SIGTERM", () => natsWrapper.client.close());
+
+    // start listening to nats streaming server
+    new OrderCreateListener(natsWrapper.client).listen();
+    new OrderCancelListener(natsWrapper.client).listen();
 
     await mongoose.connect(process.env.MONGO_URI); // 'tickets' in the end is just a DB name, I want to create.
     console.log("Connected to MongoDB");
