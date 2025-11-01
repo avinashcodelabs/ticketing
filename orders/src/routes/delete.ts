@@ -34,6 +34,7 @@ router.delete(
     // Publish order cancelled event to payment service
     await new OrderCancelPublisher(natsWrapper.client).publish({
       id: order.id,
+      version: order.version,
       ticket: {
         id: order.ticket?.id,
       },

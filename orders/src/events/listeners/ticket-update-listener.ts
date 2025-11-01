@@ -14,9 +14,9 @@ class TicketUpdateListener extends Listener<TicketUpdateEvent> {
 
   async onMessage(data: TicketUpdateEvent["data"], msg: Message) {
     console.log(`Data` + JSON.stringify(data));
-    const { id, title, price } = data;
+    const { title, price } = data;
 
-    const ticket = await Ticket.findById(id);
+    const ticket = await Ticket.findByEvent(data);
     if (!ticket) {
       throw new Error("Ticket not found to update it");
     }

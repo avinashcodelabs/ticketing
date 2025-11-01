@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 
 const ticketSchema = new Schema(
   {
@@ -15,6 +16,7 @@ const ticketSchema = new Schema(
       required: true,
     },
   },
+
   {
     toJSON: {
       transform(doc, ret: any) {
@@ -23,8 +25,11 @@ const ticketSchema = new Schema(
         delete ret.__v;
       },
     },
+    versionKey: "version",
   }
 );
+
+ticketSchema.plugin(updateIfCurrentPlugin, {});
 
 const Ticket = model("Ticket", ticketSchema);
 

@@ -1,5 +1,6 @@
 import { OrderStatus } from "@avinashcodelabs/common";
 import mongoose, { Schema, model } from "mongoose";
+import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 
 const orderSchema = new Schema(
   {
@@ -29,8 +30,11 @@ const orderSchema = new Schema(
         delete ret.__v;
       },
     },
+    versionKey: "version",
   }
 );
+
+orderSchema.plugin(updateIfCurrentPlugin);
 
 const Order = model("Order", orderSchema);
 

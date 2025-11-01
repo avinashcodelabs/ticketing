@@ -62,6 +62,7 @@ router.post(
     // Publish order created event to payment service
     await new OrderCreatePublisher(natsWrapper.client).publish({
       id: order.id,
+      version: order.version,
       status: order.status,
       userId: order.userId,
       expiredAt: order.expiresAt?.toISOString()!,
