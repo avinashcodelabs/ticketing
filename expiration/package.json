@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@avinashcodelabs/common": "^1.0.14",
+    "@avinashcodelabs/common": "^1.0.15",
     "@types/bull": "^3.15.9",
     "@types/node": "^24.8.1",
     "bull": "^4.16.5",

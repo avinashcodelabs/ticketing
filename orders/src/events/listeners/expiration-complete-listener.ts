@@ -24,6 +24,10 @@ class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent> {
       throw new Error("order not found to update the expiration status");
     }
 
+    if (order.status === OrderStatus.Complete) {
+      return msg.ack(); // return early, no action.
+    }
+
     order.set({
       status: OrderStatus.Cancelled,
     });

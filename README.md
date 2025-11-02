@@ -22,8 +22,20 @@ ticketing > kubectl create secret generic jwt-secret --from-env-file=./infra/k8s
 content of .env
 JWT_KEY=
 
+## To Update: Stripe key ---
+
+kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=GETITFROMSTRIEDEVELOPERTOOL
+
+STRIPE_KEY=
+Access it via process.env.STRIPE_KEY
+
 App UI available at `https://ticketing.dev`
 App API available at `https://ticketing.dev/api/users/signup`
+
+NATS Streaming docker image - https://hub.docker.com/_/nats-streaming
+NATS Streaming docs - https://nats-io.gitbook.io/legacy-nats-docs/nats-streaming-server-aka-stan/developing-with-stan
+NATS Streaming - node.js client - https://www.npmjs.com/package/node-nats-streaming
+Stripe - stripe.com
 
 ---
 
@@ -39,7 +51,6 @@ Find proper way to automate creating secret in k8s. Helm config can recognize(re
 
 - http://localhost:8222/streaming
 - http://localhost:8222/streaming/clientsz?subs=1
-
 
 in order to decrypt the jwt token,
 
