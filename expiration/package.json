@@ -1,0 +1,21 @@
+{
+  "name": "expiration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only --poll src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@avinashcodelabs/common": "^1.0.14",
+    "@types/bull": "^3.15.9",
+    "@types/node": "^24.8.1",
+    "bull": "^4.16.5",
+    "node-nats-streaming": "^0.3.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
