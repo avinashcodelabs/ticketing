@@ -8,6 +8,7 @@ import {
 // microservice(server) stores the data. so same client session data available to all microservices.
 // Data consistency
 import cookieSession from "cookie-session";
+import { createChargeRouter } from "./routes/new";
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(
 );
 
 app.use(currentUser);
+app.use(createChargeRouter);
 
 // Order of middleware matters here.
 // NotFoundError should come after all the valid routes and just before errorHandler,
