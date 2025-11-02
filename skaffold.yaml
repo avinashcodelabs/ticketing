@@ -51,3 +51,12 @@ build:
         manual:
           - src: "src/**/*.ts" # watch-out for all the .ts file changes
             dest: . # whenever there are changes to files in above path, copy them to running containers to current path - /app
+
+    - image: avinashcodelabs/payments # docker image name
+      context: payments # service directory name, if something outside 'sync' files changes, rebuild the image from this app.
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts" # watch-out for all the .ts file changes
+            dest: . # whenever there are changes to files in above path, copy them to running containers to current path - /app
