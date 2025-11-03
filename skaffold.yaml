@@ -3,6 +3,7 @@ kind: Config
 manifests:
   rawYaml:
     - ./infra/k8s/* # run all the k8s config(object creation) files
+    - ./infra/k8s-dev/* # run all the k8s config(object creation) files
 build:
   local:
     push: false # don't push the docker images to docker-hub
