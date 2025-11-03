@@ -62,3 +62,14 @@ in order to decrypt the jwt token,
 2. use https://www.base64decode.org/ to convert from base64 to utf-8
 3. copy 'jwt' key value
 4. paste that into https://www.jwt.io/ to decode it and see the payload
+
+---
+
+Digitalocean
+
+doctl auth init
+kubectl config view => to see all the configs like docker-desktop, minikube
+doctl kubernetes cluster kubeconfig save <cluster-name-here>
+kubectl config use-context <context-name-here>
+kubectl config get-contexts
+
