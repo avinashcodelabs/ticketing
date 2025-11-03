@@ -25,4 +25,4 @@ const start = async () => {
 
 start();
 
-//trigge
+//trigger
