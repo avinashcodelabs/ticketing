@@ -36,6 +36,10 @@ NATS Streaming docker image - https://hub.docker.com/_/nats-streaming
 NATS Streaming docs - https://nats-io.gitbook.io/legacy-nats-docs/nats-streaming-server-aka-stan/developing-with-stan
 NATS Streaming - node.js client - https://www.npmjs.com/package/node-nats-streaming
 Stripe - stripe.com
+Test credit card numbers = https://docs.stripe.com/testing#cards
+Stripe checkout component - https://www.npmjs.com/package/react-stripe-checkout
+Enable this => Enable card data collection with a publishable key without using Stripe's pre-built UI elements
+at https://dashboard.stripe.com/settings/integration in order above component to work.
 
 ---
 
