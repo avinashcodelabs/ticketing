@@ -25,6 +25,7 @@ const userSchema = new Schema(
 );
 
 userSchema.pre("save", async function (done) {
+  // checking isModified - works both signup and password change scenarios.
   if (this.isModified("password")) {
     const hashed = Password.toHash(this.get("password"));
     this.set("password", hashed);
