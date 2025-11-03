@@ -19,10 +19,8 @@ const start = async () => {
     console.error(error);
   }
   app.listen(3000, () => {
-    console.log("auth service running on 3000");
+    console.log("auth service running on 3000..");
   });
 };
 
 start();
-
-//trigger

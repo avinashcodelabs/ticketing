@@ -30,7 +30,7 @@ const start = async () => {
     process.on("SIGINT", () => natsWrapper.client.close());
     process.on("SIGTERM", () => natsWrapper.client.close());
 
-    // start listening to nats streaming server
+    // start listening to nats streaming server..
     new OrderCreateListener(natsWrapper.client).listen();
   } catch (error) {
     console.error(error);

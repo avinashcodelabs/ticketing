@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const LandingPage = ({ currentUser, tickets }) => {
+const LandingPage = ({ tickets }) => {
   return (
     <div>
       <h1>Tickets</h1>

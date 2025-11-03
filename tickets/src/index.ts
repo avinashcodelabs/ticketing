@@ -53,7 +53,7 @@ const start = async () => {
     console.error(error);
   }
   app.listen(3000, () => {
-    console.log("tickets service running on 3000");
+    console.log("tickets service running on 3000..");
   });
 };
 
