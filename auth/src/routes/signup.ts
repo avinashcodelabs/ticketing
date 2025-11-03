@@ -1,12 +1,8 @@
 import { Router } from "express";
 import type { Response, Request } from "express";
-import { body, validationResult } from "express-validator";
+import { body } from "express-validator";
 import jwt from "jsonwebtoken";
-import {
-  RequestValidationError,
-  BadRequestError,
-  validateRequest,
-} from "@avinashcodelabs/common";
+import { BadRequestError, validateRequest } from "@avinashcodelabs/common";
 import { User } from "../models/user";
 
 const router = Router();
