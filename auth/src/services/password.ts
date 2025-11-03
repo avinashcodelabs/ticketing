@@ -1,6 +1,6 @@
 import { scryptSync, randomBytes } from "node:crypto";
 
-// Todo => promisify scryptSync
+// Todo => promisify scryptSync or check if promise version of module available in latest node version
 class Password {
   static toHash(password: string) {
     const salt = randomBytes(16).toString("hex");
