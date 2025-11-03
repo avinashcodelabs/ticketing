@@ -3,7 +3,6 @@ import Link from "next/link";
 const LandingPage = ({ currentUser, tickets }) => {
   return (
     <div>
-      {/* <h1>{currentUser ? "You are signed in" : "You are NOT signed in"}</h1> */}
       <h1>Tickets</h1>
       <table className="table">
         <thead>
