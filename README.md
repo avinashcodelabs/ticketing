@@ -27,6 +27,33 @@
 14. App UI available at `https://ticketing.dev`
 15. App API available at `https://ticketing.dev/api/users/signup`
 
+## Demo
+
+https://github.com/user-attachments/assets/5bf17780-feab-4f4d-804d-0002a78c3cae
+
+## Tech
+
+- Microservices
+- Event Driven Architecture
+- Pub/Sub
+- JavaScript
+- TypeScript
+- Docker
+- Kubernetes
+- Skaffold
+- NATS Streaming - Messaging system
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Redis
+- JWT Auth
+- Next.js
+- Server Side Rendering
+- Stripe - Payment system
+- Boostrap
+- GitHub Actions
+  
 ## REST APIs spec
 
 Postman API collection at ticketing/ticketing.postman_collection.json
