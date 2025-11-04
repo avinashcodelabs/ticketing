@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "a5afb0e4-b9a5-4cfb-b86b-60c249432fd4",
+		"name": "ticketing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48847514",
+		"_collection_link": "https://avinashcodelabs-3021940.postman.co/workspace/Avinash's-Workspace~c954b217-60b7-43e3-88c9-38ec9fdf495f/collection/48847514-a5afb0e4-b9a5-4cfb-b86b-60c249432fd4?action=share&source=collection_link&creator=48847514"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "current-user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "0",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.39.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketing.dev/api/users/currentuser",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"currentuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://ticketing.dev/api/users/signout",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"test2@test.com\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/users/signup",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@test.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/users/signin",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tickets",
+			"item": [
+				{
+					"name": "create-ticket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Kantara\",\n    \"price\": 499\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/tickets",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Wick\",\n    \"price\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/tickets/6905890afcdf8a1741f7f9b0",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"6905890afcdf8a1741f7f9b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-ticket",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"some-movie-2222\",\n    \"price\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/tickets/68fc8111894611c7eb2fa806",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"68fc8111894611c7eb2fa806"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://ticketing.dev/api/tickets",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "create-order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticketId\":\"690794da26be24086969589d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/orders",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticketId\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/orders",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-an-order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/orders/",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "make-payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"tok_visa\",\n    \"orderId\": \"6905890afcdf8a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ticketing.dev/api/payments",
+							"protocol": "https",
+							"host": [
+								"ticketing",
+								"dev"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
