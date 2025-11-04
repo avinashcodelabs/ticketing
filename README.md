@@ -53,6 +53,8 @@ https://github.com/user-attachments/assets/5bf17780-feab-4f4d-804d-0002a78c3cae
 - Stripe - Payment system
 - Boostrap
 - GitHub Actions
+- Postman
+- DockerHub
   
 ## REST APIs spec
 
